@@ -1,9 +1,5 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
-require 'byebug'
-
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
 
 class SQLObject
   def self.columns
@@ -50,7 +46,7 @@ class SQLObject
 
   def self.parse_all(results)
     results.map do |hash|
-      
+
       self.new(hash)
     end
   end
@@ -75,7 +71,6 @@ class SQLObject
       unless self.class.columns.include?(col_attr)
         raise "unknown attribute 'favorite_band'"
       end
-      # byebug
       self.send((col_attr.to_s + "=").to_sym, value)
     end
 
