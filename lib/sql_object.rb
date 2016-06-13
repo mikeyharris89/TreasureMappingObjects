@@ -17,8 +17,8 @@ class SQLObject
       define_method(column) do
         attributes[column]
       end
-      col_str = column.to_s
-      define_method((col_str + "=").to_sym) do |value|
+      col_name = column.to_s
+      define_method((col_name + "=").to_sym) do |value|
         attributes[column] = value
       end
     end
@@ -41,7 +41,7 @@ class SQLObject
       #{self.table_name}
     SQL
 
-    cat = self.parse_all(results)
+    pokemon = self.parse_all(results)
   end
 
   def self.parse_all(results)
@@ -66,12 +66,12 @@ class SQLObject
   end
 
   def initialize(params = {})
-    params.each do |attr_name, value|
-      col_attr = attr_name.to_sym
-      unless self.class.columns.include?(col_attr)
-        raise "unknown attribute 'favorite_band'"
+    params.each do |attribute_name, value|
+      col_attribute = attribute_name.to_sym
+      unless self.class.columns.include?(col_attribute)
+        raise "unknown attribute #{attribute_name}"
       end
-      self.send((col_attr.to_s + "=").to_sym, value)
+      self.send((col_attribute.to_s + "=").to_sym, value)
     end
 
   end

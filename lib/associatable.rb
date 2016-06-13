@@ -10,8 +10,8 @@ module Associatable
     options = BelongsToOptions.new(name, options)
     assoc_options[name] = options
     define_method(name) do
-      for_key_value = self.send(options.foreign_key)
-      options.model_class.where(options.primary_key => for_key_value).first
+      foreign_key_value = self.send(options.foreign_key)
+      options.model_class.where(options.primary_key => foreign_key_value).first
     end
 
   end
@@ -34,8 +34,8 @@ module Associatable
       through = self.class.assoc_options[through_name]
       source = through.model_class.assoc_options[source_name]
 
-      through_for_key_value = self.send(through.foreign_key)
-      results = DBConnection.execute(<<-SQL, through_for_key_value)
+      through_foreign_key_value = self.send(through.foreign_key)
+      results = DBConnection.execute(<<-SQL, through_foreign_key_value)
         SELECT
           #{source.table_name}.*
         FROM
