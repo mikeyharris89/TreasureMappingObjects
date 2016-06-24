@@ -1,4 +1,4 @@
-CREATE TABLE pokemon (
+CREATE TABLE pokemons (
   id INTEGER PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   trainer_id INTEGER,
@@ -34,7 +34,7 @@ VALUES
   (4, "Misty", "Waterflower", 3);
 
 INSERT INTO
-  pokemon (id, name, owner_id)
+  pokemons (id, name, trainer_id)
 VALUES
   (1, "Pikachu", 1),
   (2, "Mewtwo", 2),
