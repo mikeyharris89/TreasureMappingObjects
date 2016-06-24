@@ -1,10 +1,10 @@
-## Treasure Mapping Objects - Object-relational mapping in Rails
+# Treasure Mapping Objects - Object-relational mapping in Rails
 
-Treasure Mapping is an Object-relational mapping, inspired by a little known library, Active Record. Treasure Mapping Objects allows you to link classes to database tables in order to make an easy to use web application. This library provides a base 'SQLObject' class that maps a new class with a previously existing table found in the database. These classes are commonly called 'Models' and can be associated with other models by, you guessed it, 'associations'.
+Treasure Mapping is an Object-relational mapping, inspired by Active Record. Treasure Mapping Objects allows you to link classes to database tables in order to make an easy to use web application. This library provides a base 'SQLObject' class that maps a new class with a previously existing table found in the database. These classes are commonly called 'Models' and can be associated with other models by, you guessed it, 'associations'.
 
 This library adheres to a pretty strict sense of naming, by using class/association names to establish the aforementioned associations, by connecting them with database tables and foreign_key columns. I've included methods to be able to set these mappings manually, but it'll be easier for everyone to follow naming conventions. So study up on your pluralization and snake cases.
 
-### Major Features
+## Major Features
 
 A custom SQLObject that interacts with a database, and has access to the following methods to manipulate data:
 * #new -creates a new SQLObject
