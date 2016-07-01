@@ -1,4 +1,4 @@
-# Treasure Mapping Objects - Object-relational mapping in Rails
+# Treasure Mapping Objects
 
 ##Summary
 
